@@ -1,6 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important';
 import { useTheme } from '../../../context/theme-context';
-import { DEFAULT_COLOR, COLORS } from '../../../constants/ui/colors';
+import { COLORS } from '../../../constants/ui/colors';
 import { DEFAULT_SIZE, SIZE } from '../../../constants/ui/size';
 import { DEFAULT_VARIANT } from '../../../constants/ui/button';
 import { Button } from '..';
@@ -21,22 +21,23 @@ const styles = StyleSheet.create({
 		paddingLeft: 'var(--wireframe-dimension-l)',
 	},
 	textButtonPaddingRightS: {
-		paddingLeft: 'var(--wireframe-dimension-s)',
+		paddingRight: 'var(--wireframe-dimension-s)',
 	},
 	textButtonPaddingRightM: {
-		paddingLeft: 'var(--wireframe-dimension-m)',
+		paddingRight: 'var(--wireframe-dimension-m)',
 	},
 	textButtonPaddingRightL: {
-		paddingLeft: 'var(--wireframe-dimension-l)',
+		paddingRight: 'var(--wireframe-dimension-l)',
 	},
 	textButtonIcon: {
 		color: 'currentColor',
+		flexShrink: 0,
 	},
 });
 
 export const TextButton = ({
 	children,
-	color = DEFAULT_COLOR,
+	color,
 	BeforeIcon,
 	AfterIcon,
 	onClick,
@@ -46,13 +47,7 @@ export const TextButton = ({
 	isDisabled,
 	styleDefinitions = [],
 }) => {
-	const buttonContentColor = getButtonContentColorFromVariant({
-		variant,
-		theme,
-		color,
-		isDisabled,
-	});
-	const theme = useTheme();
+	const { theme } = useTheme();
 	return (
 		<Button
 			style={style}

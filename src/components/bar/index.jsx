@@ -22,13 +22,24 @@ const styles = StyleSheet.create({
 	},
 });
 
-export const Bar = ({ size = DEFAULT_SIZE, color = DEFAULT_COLOR }) => {
+export const Bar = ({
+	size = DEFAULT_SIZE,
+	color = DEFAULT_COLOR,
+	children,
+	styleDefinitions = [],
+	style,
+}) => {
 	const { theme } = useTheme();
 	return (
 		<View
-			styleDefinitions={[styles.bar, styles[`bar${SIZE[size]}`]]}
+			styleDefinitions={[
+				styles.bar,
+				styles[`bar${SIZE[size]}`],
+				...styleDefinitions,
+			]}
 			style={{
 				'--wireframe-header-bar-background-color': theme.colors[COLORS[color]],
+				...style,
 			}}
 		>
 			{children}

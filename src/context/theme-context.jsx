@@ -23,11 +23,13 @@ export const ThemeProvider = ({
 
 	useEffect(() => {
 		setIsDarkMode(!!localStorage.getItem('isDarkMode'));
-	}, [isDarkMode]);
+	}, []);
 
 	const toggleDarkMode = () => {
-		localStorage.setItem('isDarkMode', !isDarkMode);
-		setIsDarkMode((isDarkMode) => !isDarkMode);
+		setIsDarkMode((isDarkMode) => {
+			localStorage.setItem('isDarkMode', !isDarkMode);
+			return !isDarkMode;
+		});
 	};
 
 	const theme = isDarkMode ? dark : light;
@@ -45,7 +47,7 @@ export const ThemeProvider = ({
 
 				--wireframe-foreground-color: ${theme.foregroundColor};
 				--wireframe-background-color: ${theme.backgroundColor};
-				--wirefram-=background-image: ${theme.backgroundImage};
+				--wireframe-background-image: ${theme.backgroundImage};
 
 				--wireframe-border-radius: ${theme.borderRadius}px;
 				--wireframe-border-width: ${theme.borderWidth}px;
@@ -53,17 +55,17 @@ export const ThemeProvider = ({
 
 				--wireframe-font-family: ${theme.fontFamily};
 
-				--wireframe-font-size-m-s: ${theme.fontSize[SIZE.M][SIZE.S]};
-				--wireframe-font-size-m-m: ${theme.fontSize[SIZE.M][SIZE.M]};
-				--wireframe-font-size-m-l: ${theme.fontSize[SIZE.M][SIZE.L]};
+				--wireframe-font-size-m-s: ${theme.fontSize[SIZE.M][SIZE.S]}px;
+				--wireframe-font-size-m-m: ${theme.fontSize[SIZE.M][SIZE.M]}px;
+				--wireframe-font-size-m-l: ${theme.fontSize[SIZE.M][SIZE.L]}px;
 
-				--wireframe-font-size-s-s: ${theme.fontSize[SIZE.S][SIZE.S]};
-				--wireframe-font-size-s-m: ${theme.fontSize[SIZE.S][SIZE.M]};
-				--wireframe-font-size-s-l: ${theme.fontSize[SIZE.S][SIZE.L]};
+				--wireframe-font-size-s-s: ${theme.fontSize[SIZE.S][SIZE.S]}px;
+				--wireframe-font-size-s-m: ${theme.fontSize[SIZE.S][SIZE.M]}px;
+				--wireframe-font-size-s-l: ${theme.fontSize[SIZE.S][SIZE.L]}px;
 
-				--wireframe-font-size-l-s: ${theme.fontSize[SIZE.L][SIZE.S]};
-				--wireframe-font-size-l-m: ${theme.fontSize[SIZE.L][SIZE.M]};
-				--wireframe-font-size-l-l: ${theme.fontSize[SIZE.L][SIZE.L]};
+				--wireframe-font-size-l-s: ${theme.fontSize[SIZE.L][SIZE.S]}px;
+				--wireframe-font-size-l-m: ${theme.fontSize[SIZE.L][SIZE.M]}px;
+				--wireframe-font-size-l-l: ${theme.fontSize[SIZE.L][SIZE.L]}px;
 
 				--wireframe-elevation-0: ${theme.elevation[0]};
 				--wireframe-elevation-1: ${theme.elevation[1]};

@@ -5,24 +5,28 @@ import { DEFAULT_SIZE, SIZE } from '../../constants/ui/size';
 
 const styles = StyleSheet.create({
 	avatarView: {
-		borderRadius: 'var(--wireframe-border-radius)',
 		justifyContent: 'center',
 		alignItems: 'center',
 		borderStyle: 'solid',
 		borderWidth: 'var(--wireframe-border-width)',
 		borderColor: 'var(--wireframe-border-color)',
+		backgroundColor: 'var(--wireframe-avatar-view-color)',
+		flexShrink: 0,
 	},
 	avatarViewS: {
 		width: 'var(--wireframe-dimension-s)',
 		height: 'var(--wireframe-dimension-s)',
+		borderRadius: 'calc(var(--wireframe-dimension-s) / 2)',
 	},
 	avatarViewM: {
 		width: 'var(--wireframe-dimension-m)',
 		height: 'var(--wireframe-dimension-m)',
+		borderRadius: 'calc(var(--wireframe-dimension-m) / 2)',
 	},
 	avatarViewL: {
 		width: 'var(--wireframe-dimension-l)',
 		height: 'var(--wireframe-dimension-l)',
+		borderRadius: 'calc(var(--wireframe-dimension-l) / 2)',
 	},
 	avatarText: {
 		fontWeight: 'bold',
@@ -60,8 +64,8 @@ export const Avatar = ({
 	style,
 	styleDefinitions = [],
 }) => {
-	const userNameColor = getColorFromString(userName);
-	const userNameFirstLetter = userName[0];
+	const userNameColor = userName && getColorFromString(userName);
+	const userNameFirstLetter = userName && userName[0];
 
 	return (
 		<View
@@ -71,7 +75,8 @@ export const Avatar = ({
 				...styleDefinitions,
 			]}
 			style={{
-				'--avatar-view-color': avatarViewBackgroundColor || userNameColor,
+				'--wireframe-avatar-view-color':
+					avatarViewBackgroundColor || userNameColor,
 				...style,
 			}}
 		>

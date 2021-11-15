@@ -16,6 +16,7 @@ export const Badge = ({
 	color,
 	style,
 	styleDefinitions,
+	chipStyleDefinitions = [],
 	BadgeIcon,
 	badgeContent,
 }) => {
@@ -26,7 +27,7 @@ export const Badge = ({
 				size={size}
 				color={color}
 				ChipIcon={BadgeIcon}
-				styleDefinitions={[styles.badgeChip]}
+				styleDefinitions={[styles.badgeChip, ...chipStyleDefinitions]}
 			>
 				{badgeContent}
 			</Chip>

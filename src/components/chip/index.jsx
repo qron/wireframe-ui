@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
 	chip: {
 		display: 'inline-flex',
 		borderRadius: 'var(--wireframe-border-radius)',
+		justifyContent: 'center',
 		alignItems: 'center',
 		flexDirection: 'row',
 		padding: 'var(--wireframe-spacing-element)',
@@ -43,7 +44,7 @@ export const Chip = ({
 	styleDefinitions = [],
 	ChipIcon,
 }) => {
-	const theme = useTheme();
+	const { theme } = useTheme();
 	return (
 		<View
 			styleDefinitions={[

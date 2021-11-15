@@ -10,7 +10,12 @@ const styles = StyleSheet.create({
 	},
 });
 
-const TextButtonLabel = ({ children, size, color, styleDefinitions = [] }) => {
+export const TextButtonLabel = ({
+	children,
+	size,
+	color,
+	styleDefinitions = [],
+}) => {
 	return (
 		<Text
 			color={color}

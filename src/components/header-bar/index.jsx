@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
 	},
 	headerBarTitle: {
 		flexGrow: 1,
+		color: 'currentColor',
 	},
 	headerBarActionIconButton: {
 		color: 'currentColor',
@@ -43,6 +44,8 @@ export const HeaderBar = ({
 	title,
 	color,
 	children,
+	style,
+	styleDefinitions = [],
 }) => {
 	return (
 		<Bar
@@ -50,6 +53,7 @@ export const HeaderBar = ({
 			styleDefinitions={[
 				!TitleIcon && styles[`headerBarPaddingLeft${SIZE[size]}`],
 				!children && styles[`headerBarPaddingRight${SIZE[size]}`],
+				...styleDefinitions,
 			]}
 			color={color}
 		>

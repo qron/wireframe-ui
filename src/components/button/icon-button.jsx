@@ -1,7 +1,6 @@
 import { StyleSheet } from 'aphrodite/no-important';
 import { DEFAULT_VARIANT } from '../../constants/ui/button';
-import { DEFAULT_COLOR } from '../../constants/ui/colors';
-import { DEFAULT_SIZE } from '../../constants/ui/size';
+import { DEFAULT_SIZE, SIZE } from '../../constants/ui/size';
 import { Button } from '.';
 import { Icon } from '../icon';
 
@@ -21,13 +20,14 @@ const styles = StyleSheet.create({
 });
 
 export const IconButton = ({
-	color = DEFAULT_COLOR,
+	color,
 	ButtonIcon,
 	size = DEFAULT_SIZE,
 	variant,
 	onClick,
-	styleDefinitions,
+	styleDefinitions = [],
 	style,
+	isDisabled,
 }) => {
 	return (
 		<Button

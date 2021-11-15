@@ -6,6 +6,8 @@ export const CardBar = ({
 	cardBarTitle,
 	color,
 	children,
+	style,
+	styleDefinitions,
 }) => {
 	return (
 		<HeaderBar
@@ -13,6 +15,8 @@ export const CardBar = ({
 			TitleIcon={CardBarTitleIcon}
 			title={cardBarTitle}
 			color={color}
+			style={style}
+			styleDefinitions={styleDefinitions}
 		>
 			{children}
 		</HeaderBar>

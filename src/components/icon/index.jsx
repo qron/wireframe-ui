@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
 	iconView: {
 		alignItems: 'center',
 		justifyContent: 'center',
+		flexShrink: 0,
 	},
 	iconViewS: {
 		width: 'var(--wireframe-dimension-s)',

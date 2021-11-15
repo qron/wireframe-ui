@@ -1,5 +1,5 @@
-import LightBlueprintPatternSVG from '../../../public/svg/pattern/light-blueprint.svg';
-import DarkBlueprintPatternSVG from '../../../public/svg/pattern/dark-blueprint.svg';
+import LightBlueprintPatternSVG from '../../assets/svg/pattern/light-blueprint.svg';
+import DarkBlueprintPatternSVG from '../../assets/svg/pattern/dark-blueprint.svg';
 
 import { SIZE } from './size';
 import { COLORS } from './colors';
@@ -19,22 +19,22 @@ const DEFAULT_THEME = {
 	borderRadius: 3,
 
 	spacing: {
-		element: 10,
-		content: 20,
+		element: 5,
+		content: 40,
 	},
 
 	fontSize: {
-		STANDARD: {
-			[SIZE.S]: 12,
-			[SIZE.M]: 18,
-			[SIZE.L]: 24,
-		},
-		SMALL: {
+		S: {
 			[SIZE.S]: 10,
 			[SIZE.M]: 16,
 			[SIZE.L]: 22,
 		},
-		LARGE: {
+		M: {
+			[SIZE.S]: 12,
+			[SIZE.M]: 18,
+			[SIZE.L]: 24,
+		},
+		L: {
 			[SIZE.S]: 14,
 			[SIZE.M]: 20,
 			[SIZE.L]: 26,
@@ -42,14 +42,6 @@ const DEFAULT_THEME = {
 	},
 
 	fontFamily: 'monospace',
-
-	dropShadow: [
-		`0px 0px 0 0px ${DEFAULT_SHADOW_COLOR}`,
-		`0px 4px 0 -2px ${DEFAULT_SHADOW_COLOR}`,
-		`0px 10px 0 -5px ${DEFAULT_SHADOW_COLOR}`,
-		`0px 24px 0 -12px ${DEFAULT_SHADOW_COLOR}`,
-		`0px 48px 0 -24px ${DEFAULT_SHADOW_COLOR}`,
-	],
 };
 
 export const LIGHT_THEME = {
@@ -69,10 +61,17 @@ export const LIGHT_THEME = {
 		[COLORS.SHADOW]: 'rgba(0, 0, 0, 0.5)',
 		[COLORS.LAYER]: 'rgba(255, 255, 255, 0.75)',
 	},
-	borderColor: '#333',
+	borderColor: '#444',
 	backgroundColor: '#FAFAFA',
 	foregroundColor: '#333',
-	backgroundImage: `url(${LightBlueprintPatternSVG})`,
+	backgroundImage: `url(.${LightBlueprintPatternSVG})`,
+	elevation: [
+		'0px 0px 0 0px rgba(0, 0, 0, 0.5)',
+		'0px 4px 0 -2px rgba(0, 0, 0, 0.5)',
+		'0px 10px 0 -5px rgba(0, 0, 0, 0.5)',
+		'0px 24px 0 -12px rgba(0, 0, 0, 0.5)',
+		'0px 48px 0 -24px rgba(0, 0, 0, 0.5)',
+	],
 };
 
 export const DARK_THEME = {
@@ -85,15 +84,22 @@ export const DARK_THEME = {
 		[COLORS.INFO]: '#03639C',
 		[COLORS.ERROR]: '#9c0303',
 		[COLORS.WARNING]: '#9c6903',
-		[COLORS.SUCCESS]: '#036936',
+		[COLORS.SUCCESS]: '#036966',
 		[COLORS.TIP]: '#9c9c03',
 		[COLORS.DISABLED_BACKGROUND]: '#424242',
 		[COLORS.DISABLED_FOREGROUND]: '#616161',
-		[COLORS.SHADOW]: 'rgba(0, 0, 0, 0.5)',
+		[COLORS.SHADOW]: 'rgba(0, 0, 0, 0.75)',
 		[COLORS.LAYER]: 'rgba(0, 0, 0, 0.75)',
 	},
-	borderColor: '#EEE',
+	borderColor: '#CCC',
 	backgroundColor: '#212121',
 	foregroundColor: '#EEE',
-	backgroundImage: `url(${DarkBlueprintPatternSVG})`,
+	backgroundImage: `url(.${DarkBlueprintPatternSVG})`,
+	elevation: [
+		'0px 0px 0 0px rgba(0, 0, 0, 0.75)',
+		'0px 4px 0 -2px rgba(0, 0, 0, 0.75)',
+		'0px 10px 0 -5px rgba(0, 0, 0, 0.75)',
+		'0px 24px 0 -12px rgba(0, 0, 0, 0.75)',
+		'0px 48px 0 -24px rgba(0, 0, 0, 0.75)',
+	],
 };

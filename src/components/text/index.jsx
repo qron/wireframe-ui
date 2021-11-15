@@ -1,45 +1,39 @@
 import { StyleSheet, css } from 'aphrodite/no-important';
-import { DEFAULT_SIZE } from '../../constants/ui/size';
-import {
-	FONT_SIZE,
-	FONT_FAMILY,
-	SMALLER_FONT_SIZE,
-	FONT_COLOR_BY_THEME,
-	COLORS,
-} from '../theme';
+import { useTheme } from '../../context/theme-context';
+import { DEFAULT_SIZE, SIZE } from '../../constants/ui/size';
+import { COLORS } from '../../constants/ui/colors';
 
 const styles = StyleSheet.create({
 	text: {
-		fontFamily: FONT_FAMILY,
-		boxSizing: 'border-box',
+		fontFamily: 'var(--wireframe-font-family)',
 		color: 'var(--wireframe-text-color)',
 	},
 	textSS: {
-		fontSize: '--wireframe-font-size-s-s',
+		fontSize: 'var(--wireframe-font-size-s-s)',
 	},
 	textSM: {
-		fontSize: '--wireframe-font-size-s-m',
+		fontSize: 'var(--wireframe-font-size-s-m)',
 	},
 	textSL: {
-		fontSize: '--wireframe-font-size-s-l',
+		fontSize: 'var(--wireframe-font-size-s-l)',
 	},
 	textMS: {
-		fontSize: '--wireframe-font-size-m-s',
+		fontSize: 'var(--wireframe-font-size-m-s)',
 	},
 	textMM: {
-		fontSize: '--wireframe-font-size-m-m',
+		fontSize: 'var(--wireframe-font-size-m-m)',
 	},
 	textML: {
-		fontSize: '--wireframe-font-size-m-l',
+		fontSize: 'var(--wireframe-font-size-m-l)',
 	},
 	textLS: {
-		fontSize: '--wireframe-font-size-l-s',
+		fontSize: 'var(--wireframe-font-size-l-s)',
 	},
 	textLM: {
-		fontSize: '--wireframe-font-size-l-m',
+		fontSize: 'var(--wireframe-font-size-l-m)',
 	},
 	textLL: {
-		fontSize: '--wireframe-font-size-l-l',
+		fontSize: 'var(--wireframe-font-size-l-l)',
 	},
 });
 
@@ -62,6 +56,8 @@ export const Text = ({
 	style,
 	styleDefinitions = [],
 }) => {
+	const { theme } = useTheme();
+
 	const fontSizeStyleDefinition = getFontSizeStyleDefinition({
 		size,
 		small,
@@ -71,7 +67,9 @@ export const Text = ({
 		<span
 			className={css(styles.text, fontSizeStyleDefinition, ...styleDefinitions)}
 			style={{
-				'--wireframe-text-color': COLORS[color || FONT_COLOR_BY_THEME[theme]],
+				'--wireframe-text-color': color
+					? theme.colors[COLORS[color]]
+					: theme.foregroundColor,
 				...style,
 			}}
 		>

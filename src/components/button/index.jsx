@@ -9,11 +9,13 @@ const styles = StyleSheet.create({
 		all: 'unset',
 		boxSizing: 'border-box',
 		display: 'flex',
+		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: `var(--wireframe-border-radius)`,
-		borderWidth: `var(--wireframe-border-width)`,
+		borderRadius: 'var(--wireframe-border-radius)',
+		borderWidth: 'var(--wireframe-border-width)',
 		':disabled': {
-			borderColor: `var(--wireframe-color-disabled-foreground)`,
+			borderColor: 'var(--wireframe-color-disabled-foreground)',
+			color: 'var(--wireframe-color-disabled-foreground)',
 		},
 	},
 
@@ -34,11 +36,11 @@ const styles = StyleSheet.create({
 
 	contained: {
 		borderStyle: 'solid',
-		boxShadow: `var(--wireframe-elevation-1)`,
-		borderColor: `var(--wireframe-foreground-color)`,
+		boxShadow: 'var(--wireframe-elevation-1)',
+		borderColor: 'var(--wireframe-foreground-color)',
 		backgroundColor: 'var(--wireframe-button-color)',
 		':disabled': {
-			backgroundColor: `var(--wireframe-color-disabled-background)`,
+			backgroundColor: 'var(--wireframe-color-disabled-background)',
 		},
 		color: 'var(--wireframe-foreground-color)',
 	},

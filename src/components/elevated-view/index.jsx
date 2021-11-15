@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
 		borderColor: 'var(--wireframe-border-color)',
 		borderRadius: 'var(--wireframe-border-radius)',
 		backgroundColor: 'var(--wireframe-background-color)',
-		overflow: 'hidden',
 	},
 	elevatedView0: {
 		boxShadow: 'var(--wireframe-elevation-0)',
